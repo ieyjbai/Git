@@ -1,0 +1,59 @@
+# 向当前项目下添加文件 test.txt 并进行第一次提交
+git add test.txt
+git commit
+
+# 再次修改并第二次提交
+git add test.txt
+git commit
+
+# 查看当前分支，*标注当前分支
+git branch
+
+# 创建分支 b2
+git branch b2
+
+# 切换分支到 b2 (创建并切换方式：git checkout -b b2)
+git checkout b2
+
+# 查看各个分支版本信息
+git branch -v
+
+# 在 b2 分支中修改并进行 b2 的第一次提交
+git add test.txt
+git commit
+
+# 切换到 master分支
+git checkout master
+
+# 查看各个分支版本信息
+git branch -v
+
+# 将 b2 分支合并到 master 中
+git merge b2	# 出现冲突
+
+# 手动编辑冲突部分，删除 git 标记
+# 将文件添加到暂存区，标记文件冲突已解决，并提交
+git add test.txt
+git commit
+
+# 查看已合并入 master 的分支
+git branch --merged	# 可删除已合并的分支
+
+# 查看未合并入 master 的分支
+git branch --no-merged
+
+# 删除分支 b2
+git branch -d b2
+
+
+# 查看各个分支版本信息
+git branch -v
+
+
+
+
+
+
+
+
+

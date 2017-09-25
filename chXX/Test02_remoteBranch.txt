@@ -1,0 +1,142 @@
+# 路人甲克隆远程项目，并修改推送
+
+# 进入 tmp 目录
+cd tmp
+
+# 克隆远程仓库到 tmp/ch02 目录
+git clone http://github.com/ieyjbai/ch02.git
+
+# 进入 tmp/ch02 目录
+cd ch02
+
+# 在 tmp/ch02 目录中加入文件：test1.txt, Test01_localBranch.txt 并提交
+git add test1.txt Test01_localBranch.txt
+git commit
+
+# 将文件推送到远程仓库
+git push
+
+=========================================================
+# 我克隆远程项目，修改并提交
+
+# 进入 git 目录
+cd git
+
+# 重新克隆远程项目
+git clone http://github.com/ieyjbai/ch02.git
+
+# 进入 git/ch02 目录
+cd ch02
+
+# 查看远程项目引用完整列表
+git ls-remote
+
+# 查看远程分支信息
+git remote show
+
+# 向本项目下添加文件：Test02_remoteBranch.txt 并提交
+git add Test02_remoteBranch.txt
+git commit
+
+============================================================
+# 路人甲继续修改并推送
+
+# 回到 tmp/ch02 目录下
+cd tmp/ch02
+
+# 路人甲向自己的项目下添加文件：test02.txt 并提交
+git add test02.txt
+git commit	
+
+# 路人甲将文件推送到远程仓库
+git push	# 此时，我的提交和路人甲的开始分叉
+
+============================================================
+# 我抓取远程仓库最新数据并查看
+
+# 回到 git/ch02 目录下
+cd git/ch02
+
+# 更新远程仓库引用，从中抓取本地没有的数据，
+# 并且更新本地数据库，移动 origin/master 指针指向新的、更新后的位置。
+git fetch origin	# 此时，你看不到更新的数据，因为你还在 master 分支下
+
+# 切换到远程仓库主分支 origin/master
+git checkout origin/master	# 此时，可以看到 origin/master 中的数据
+
+============================================================
+
+# 切换到本地主分支
+git checkout master
+
+# 从远程跟踪分支 origin/master 检出一个跟踪分支 cur
+git checkout -b cur origin/master
+
+============================================================
+
+# 进入 tmp/ch02 目录
+cd tmp/ch02
+
+# 修改 test2.txt 文件，并提交
+git add test2.txt
+git commit
+
+# 将修改推送到远程仓库
+git push 
+
+============================================================
+# 进入 git/ch02 目录
+cd git/ch02
+
+# 抓取远程仓库新数据
+git fetch 
+
+# 切换到跟踪分支 cur 
+git checkout cur	# 此时，看不到新数据，因为 cur 没有更新
+
+# 更新跟踪分支 cur，使之与远程分支同步
+# git branch -u origin/master？？？
+
+# 将 origin/master 合并到跟踪分支 cur 上
+git merge origin/master	# 此时，快进即可
+
+# 在分支 cur 中可以看到最新数据
+
+
+=============================================================
+# 切换到 master 分支
+git checkout master
+
+# 使用 merge 命令，将 origin/master 分支合并到主分支
+git merge origin/master
+
+# 在分支 master 中可以看到最新数据
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
